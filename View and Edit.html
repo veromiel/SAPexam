@@ -1,0 +1,1377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0184)https://eucentral.questionmark.com/em/modules/ERC/CRPreview.aspx?From=ASP&ResultID=1761045292&TemplateID=10&da=1&digest=dcf812082096865393070188378f1302bd5b376430cc1210edcde0de0f220192 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title id="tEditFormat">View and Edit</title>
+		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+		<meta content="C#" name="CODE_LANGUAGE">
+		<meta content="JavaScript" name="vs_defaultClientScript">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+		<link href="./View and Edit_files/CoachingReport.css" type="text/css" rel="stylesheet">
+		</head><body bottommargin="1" leftmargin="1" topmargin="1" rightmargin="1" ms_positioning="GridLayout"><span id="lblStyle"><style type="text/css">body,table{ font-family:Arial; color:#000000; font-size:10pt;  background-color:#FFFFFF}.ReportletNumbering{ font-family:Arial; color:#000000; font-size:20pt; background-color:#80C9FF;  text-align:center; width:100px; }.ReportletHeader{ font-family:Arial; color:#000000; font-size:12pt; background-color:#FFFFFF; FONT-WEIGHT: bold;}.TableHeader{ font-family:Arial; color:#000000; font-size:11pt; background-color:#EAEAEA; FONT-WEIGHT: bold;}.StatsLabel { font-family:Gill Sans MT; color:#000000; font-size:10pt; background-color:#EAEAEA; padding:3px; }.Stats { font-family:Gill Sans MT; color:#000000; font-size:10pt; padding:3px; }.comment { }.ReportTitle{ font-family:Arial; color:#000000; font-size:20pt; background-color:#EAEAEA; FONT-WEIGHT: bold;}.HiliteText{color:#ff0000;}.LoliteText{color:#6C6C6C;}</style></span>
+		<script language="javascript">
+		
+		function ClosePleaseWait()
+		{
+			var obj=document.getElementById("__PleaseWaitScreen");	
+			obj.className="PleaseWaitHidden";
+		}
+					
+		function UpdateHeader(title)
+		{			
+			document.getElementById(slblHeader).innerHTML = title;
+			document.getElementById('hdnRepTitle').value = title;	
+			document.location.href= "./CRPreview.aspx";
+		}
+		
+		var vSendEmailPaneIsVisibleObjID;		
+		
+		function ShowEmailReportPane(bShowSendPage)
+		{
+			if (document.getElementById("divSendEmailPane").className != "EmailReportVisible")
+			{
+				document.getElementById("divSendEmailPane").className = "EmailReportVisible";	
+			
+				var oSendEmailIsVisible = document.getElementById(vSendEmailPaneIsVisibleObjID);
+				oSendEmailIsVisible.value = "true";
+				if (bShowSendPage)
+				{
+					ShowSendPage();
+				}
+			}
+			
+			return false;
+		}		
+		
+		function CloseEmailReport()
+		{
+			document.getElementById("divSendEmailPane").className = "EmailReportInvisible";	
+			
+			var oSendEmailIsVisible = document.getElementById(vSendEmailPaneIsVisibleObjID);
+			oSendEmailIsVisible.value = "false";
+
+			document.getElementById("ucSendEmailForm_lblConfirmation").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_lblIntroduction").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_lblFrom").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbFrom").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_lblTo").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbTo").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbTo").value = "";
+			document.getElementById("ucSendEmailForm_lblCc").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbCc").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbCc").value = "";
+			document.getElementById("ucSendEmailForm_lblBcc").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbBcc").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbBcc").value = "";
+			document.getElementById("ucSendEmailForm_lblSubject").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbSubject").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbSubject").value = "";
+			document.getElementById("ucSendEmailForm_lblMessage").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbMessage").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_tbMessage").value = "";
+			document.getElementById("ucSendEmailForm_chkSendCopy").style.visibility = "hidden";
+			document.getElementById("ucSendEmailForm_lblSendCopy").style.visibility = "hidden";
+			//document.getElementById("ucSendEmailForm_chkSendCopy").checked = false;			
+			if (document.getElementById("ucSendEmailForm_chkSendCopyToParticipant") != null)
+			{
+				document.getElementById("ucSendEmailForm_chkSendCopyToParticipant").style.visibility = "hidden";			
+			}
+			if (document.getElementById("ucSendEmailForm_lblSendCopyToParticipant") != null)
+			{
+				document.getElementById("ucSendEmailForm_lblSendCopyToParticipant").style.visibility = "hidden";
+			}
+			//document.getElementById("ucSendEmailForm_chkSendCopyToParticipant").checked = false;								
+			document.getElementById(vSendObjID).value = vSend;
+			
+			return false;
+		}		
+		
+		function SaveAsTemplate()
+		{
+			window.open('../../Reports/SaveAsTemplate.aspx?type=ERC&from=CRPreview&mode=Save','SaveReport','resizable=yes,height=120, width=370, left=300, top=300');
+			return false;
+		}		
+		</script>
+
+	
+		<div class="PleaseWaitHidden" id="__PleaseWaitScreen">
+			<table class="PleaseWaitTable">
+				<tbody><tr>
+					<td valign="top"><img src="./View and Edit_files/logo.gif" id="imgPleaseWaitLogo">
+					</td>
+					<td valign="middle"><span id="lblPleaseWaitText">Please wait...</span><br>
+						<span id="lblPleaseWaitDescription">The current page is being loaded</span></td>
+				</tr>
+				<tr>
+					<td align="center" width="100%" colspan="2"><img src="./View and Edit_files/pleasewait.gif" id="imgPleaseWaitProgress">
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+		<form name="Form1" method="post" action="https://eucentral.questionmark.com/em/modules/ERC/CRPreview.aspx?From=ASP&amp;ResultID=1761045292&amp;TemplateID=10&amp;da=1&amp;digest=dcf812082096865393070188378f1302bd5b376430cc1210edcde0de0f220192" id="Form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNjUwMzMzNjM5DxYEHg9fX0FudGlDU1JGVG9rZW4FIGYxNTdjMjI4MTcxODQ5Yjg5ZmQwNzYyYjliZjY2ZjI5HhJfX0FudGlDU1JGVXNlck5hbWVlFg4CAQ8WAh4JaW5uZXJodG1sBQ1WaWV3IGFuZCBFZGl0ZAIDDw8WAh4EVGV4dAXGBjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Ym9keSx0YWJsZXsgZm9udC1mYW1pbHk6QXJpYWw7IGNvbG9yOiMwMDAwMDA7IGZvbnQtc2l6ZToxMHB0OyAgYmFja2dyb3VuZC1jb2xvcjojRkZGRkZGfS5SZXBvcnRsZXROdW1iZXJpbmd7IGZvbnQtZmFtaWx5OkFyaWFsOyBjb2xvcjojMDAwMDAwOyBmb250LXNpemU6MjBwdDsgYmFja2dyb3VuZC1jb2xvcjojODBDOUZGOyAgdGV4dC1hbGlnbjpjZW50ZXI7IHdpZHRoOjEwMHB4OyB9LlJlcG9ydGxldEhlYWRlcnsgZm9udC1mYW1pbHk6QXJpYWw7IGNvbG9yOiMwMDAwMDA7IGZvbnQtc2l6ZToxMnB0OyBiYWNrZ3JvdW5kLWNvbG9yOiNGRkZGRkY7IEZPTlQtV0VJR0hUOiBib2xkO30uVGFibGVIZWFkZXJ7IGZvbnQtZmFtaWx5OkFyaWFsOyBjb2xvcjojMDAwMDAwOyBmb250LXNpemU6MTFwdDsgYmFja2dyb3VuZC1jb2xvcjojRUFFQUVBOyBGT05ULVdFSUdIVDogYm9sZDt9LlN0YXRzTGFiZWwgeyBmb250LWZhbWlseTpHaWxsIFNhbnMgTVQ7IGNvbG9yOiMwMDAwMDA7IGZvbnQtc2l6ZToxMHB0OyBiYWNrZ3JvdW5kLWNvbG9yOiNFQUVBRUE7IHBhZGRpbmc6M3B4OyB9LlN0YXRzIHsgZm9udC1mYW1pbHk6R2lsbCBTYW5zIE1UOyBjb2xvcjojMDAwMDAwOyBmb250LXNpemU6MTBwdDsgcGFkZGluZzozcHg7IH0uY29tbWVudCB7IH0uUmVwb3J0VGl0bGV7IGZvbnQtZmFtaWx5OkFyaWFsOyBjb2xvcjojMDAwMDAwOyBmb250LXNpemU6MjBwdDsgYmFja2dyb3VuZC1jb2xvcjojRUFFQUVBOyBGT05ULVdFSUdIVDogYm9sZDt9LkhpbGl0ZVRleHR7Y29sb3I6I2ZmMDAwMDt9LkxvbGl0ZVRleHR7Y29sb3I6IzZDNkM2Qzt9PC9zdHlsZT5kZAIFDxYCHgNzcmMFFS4uLy4uL2ltYWdlcy9sb2dvLmdpZmQCBw8PFgIfAwUOUGxlYXNlIHdhaXQuLi5kZAIJDw8WAh8DBSBUaGUgY3VycmVudCBwYWdlIGlzIGJlaW5nIGxvYWRlZGRkAgsPFgIfBAUbLi4vLi4vaW1hZ2VzL3BsZWFzZXdhaXQuZ2lmZAIND2QWHgIBD2QWAmYPZBYYAgEPDxYCHwMFG0VudGVyIHRoZSByZWNpcGllbnQgZGV0YWlsc2RkAgUPDxYCHwMFBEZyb21kZAIJDw8WAh8DBQNUbzpkZAINDw8WAh8DBQNDYzpkZAIRDw8WAh8DBQRCY2M6ZGQCFQ8PFgIfAwUIU3ViamVjdDpkZAIZDw8WAh8DBQhNZXNzYWdlOmRkAh8PDxYCHwMFGFNlbmQgY29weSB0byBwYXJ0aWNpcGFudGRkAiMPDxYCHwMFEVNlbmQgY29weSB0byBzZWxmZGQCJQ8PFgIfAwUEU2VuZBYCHgdvbmNsaWNrBSFqYXZhc2NyaXB0OnJldHVybiBWYWxpZGF0ZUZvcm0oKTtkAicPFgIeBXZhbHVlBQVDbG9zZWQCKQ8PFgIfAwWvCjxzY3JpcHQgbGFuZ3VhZ2U9J2phdmFzY3JpcHQnPnZhciB2VG9PYmpJRD0idWNTZW5kRW1haWxGb3JtX3RiVG8iO3ZhciB2U2VuZE9iaklEPSJ1Y1NlbmRFbWFpbEZvcm1fYnRuU2VuZEVtYWlsIjt2YXIgdlNlbmQ9IlNlbmQiO3ZhciB2QmFjaz0iQmFjayI7dmFyIHZTZW5kQ29weT0iU2VuZCBjb3B5IHRvIHNlbGYiO3ZhciBzRW1haWxFcnJNc2c9IlRoZSBmb2xsb3dpbmcgZmllbGRzIGNvbnRhaW4gaW52YWxpZCBlbWFpbCBhZGRyZXNzIDogIjt2YXIgc0VyckZyb209IlxuICAgIEZyb20iO3ZhciBzRXJyVG89IlxuICAgIFRvIjt2YXIgc0VyckJjYz0iXG4gICAgQmNjIjt2YXIgc0VyckNjPSJcbiAgICBDYyI7dmFyIHNsYmxDb25maXJtYXRpb249InVjU2VuZEVtYWlsRm9ybV9sYmxDb25maXJtYXRpb24iO3ZhciBzbGJsSW50cm9kdWN0aW9uPSJ1Y1NlbmRFbWFpbEZvcm1fbGJsSW50cm9kdWN0aW9uIjt2YXIgc2xibEZyb209InVjU2VuZEVtYWlsRm9ybV9sYmxGcm9tIjt2YXIgc3RiRnJvbT0idWNTZW5kRW1haWxGb3JtX3RiRnJvbSI7dmFyIHNsYmxUbz0idWNTZW5kRW1haWxGb3JtX2xibFRvIjt2YXIgc3RiVG89InVjU2VuZEVtYWlsRm9ybV90YlRvIjt2YXIgc2xibENjPSJ1Y1NlbmRFbWFpbEZvcm1fbGJsQ2MiO3ZhciBzdGJDYz0idWNTZW5kRW1haWxGb3JtX3RiQ2MiO3ZhciBzbGJsQmNjPSJ1Y1NlbmRFbWFpbEZvcm1fbGJsQmNjIjt2YXIgc3RiQmNjPSJ1Y1NlbmRFbWFpbEZvcm1fdGJCY2MiO3ZhciBzbGJsU3ViamVjdD0idWNTZW5kRW1haWxGb3JtX2xibFN1YmplY3QiO3ZhciBzdGJTdWJqZWN0PSJ1Y1NlbmRFbWFpbEZvcm1fdGJTdWJqZWN0Ijt2YXIgc2xibE1lc3NhZ2U9InVjU2VuZEVtYWlsRm9ybV9sYmxNZXNzYWdlIjt2YXIgc3RiTWVzc2FnZT0idWNTZW5kRW1haWxGb3JtX3RiTWVzc2FnZSI7dmFyIHNjaGtTZW5kQ29weT0idWNTZW5kRW1haWxGb3JtX2Noa1NlbmRDb3B5Ijt2YXIgc2xibFNlbmRDb3B5PSJ1Y1NlbmRFbWFpbEZvcm1fbGJsU2VuZENvcHkiO3ZhciBzY2hrU2VuZENvcHk9InVjU2VuZEVtYWlsRm9ybV9jaGtTZW5kQ29weSI7dmFyIHNsYmxTZW5kQ29weVRvUGFydGljaXBhbnQ9InVjU2VuZEVtYWlsRm9ybV9sYmxTZW5kQ29weVRvUGFydGljaXBhbnQiO3ZhciBzY2hrU2VuZENvcHlUb1BhcnRpY2lwYW50PSJ1Y1NlbmRFbWFpbEZvcm1fY2hrU2VuZENvcHlUb1BhcnRpY2lwYW50Ijt2YXIgc01vZHVsZT0nJzt2YXIgaGRuRU1haWxCb2R5X0NsaWVudElEPSJ1Y1NlbmRFbWFpbEZvcm1faGRuRU1haWxCb2R5Ijtkb2N1bWVudC5nZXRFbGVtZW50QnlJZChzdGJGcm9tKS52YWx1ZT0nJzs8L3NjcmlwdD5kZAIDDw8WBB8DBQRTYXZlHgdUb29sVGlwBRJTYXZlIHRvIE15IFJlcG9ydHMWAh4Fc3R5bGUFEnZpc2liaWxpdHk6aGlkZGVuO2QCBQ8PFgQfAwUHU2F2ZSBBcx8HBSBTYXZlIEFzIG5ldyByZXBvcnQgdG8gTXkgUmVwb3J0cxYCHwgFEnZpc2liaWxpdHk6aGlkZGVuO2QCBw8PFgYfAwUQU2F2ZSBBcyBUZW1wbGF0ZR8HBRxTYXZlIHRoaXMgcmVwb3J0IGFzIHRlbXBsYXRlHgdWaXNpYmxlaBYEHwgFEnZpc2liaWxpdHk6aGlkZGVuOx8FBSNKYXZhc2NyaXB0OnJldHVybiBTYXZlQXNUZW1wbGF0ZSgpO2QCCQ8PFgQfAwUPRGlzdHJpYnV0ZSDCuyAgHwloZGQCCw8PFgQeCEltYWdlVXJsBRguLi8uLi9pbWFnZXMvaHRtbGRvYy5naWYeDUFsdGVybmF0ZVRleHQFDkJyb3dzZXIgKEhUTUwpFgIfCAUSdmlzaWJpbGl0eTpoaWRkZW47ZAINDw8WBB8KBRguLi8uLi9pbWFnZXMvcHJpbnRlci5naWYfCwUXUHJpbnRlciBGcmllbmRseSAoSFRNTCkWAh8IBRJ2aXNpYmlsaXR5OmhpZGRlbjtkAg8PDxYEHwoFFS4uLy4uL2ltYWdlcy9tYWlsLmdpZh8LBQxFbWFpbCAoSFRNTCkWBB8FBSxqYXZhc2NyaXB0OnJldHVybiBTaG93RW1haWxSZXBvcnRQYW5lKHRydWUpOx8IBRJ2aXNpYmlsaXR5OmhpZGRlbjtkAhEPDxYEHwoFFy4uLy4uL2ltYWdlcy94bHNkb2MuZ2lmHwsFD0V4cG9ydCB0byBFeGNlbBYCHwgFEnZpc2liaWxpdHk6aGlkZGVuO2QCEw8PFgQfCgUYLi4vLi4vaW1hZ2VzL3dvcmRkb2MuZ2lmHwsFDkV4cG9ydCB0byBXb3JkFgIfCAUSdmlzaWJpbGl0eTpoaWRkZW47ZAIVDw8WBB8KBRcuLi8uLi9pbWFnZXMvcGRmZG9jLmdpZh8LBQ1FeHBvcnQgdG8gUGRmFgIfCAUSdmlzaWJpbGl0eTpoaWRkZW47ZAIZDw8WAh8DZWRkAhsPZBYEZg9kFgYCAQ8PFgIfAwUMU2NvcmUgUmVwb3J0ZGQCBw8PFgIfAwWAITx0YWJsZSB3aWR0aD0nMTAwJScgY2VsbHBhZGRpbmc9JzAnIGNlbGxzcGFjaW5nPScwJz48dHI+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPlJlc3VsdDwvdGQ+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIGNvbHNwYW49JzMnPjxzcGFuIGNsYXNzPSdMb2xpdGVUZXh0Jz4NCjxkaXYgY2xhc3M9InhfcW1fQVNTRVNTTUVOVF9PVVRDT01FIj4NCjxwPlVuZm9ydHVuYXRlbHksIHlvdSBkaWQgbm90IHBhc3MgdGhlIGV4YW0uIFJlZmVyIHRvIFNBUC5jb20vdHJhaW5pbmcgZm9yIG1vcmUgZGV0YWlscyBvbiBob3cgdG8gcHJlcGFyZSBmb3IgdGhpcyBleGFtIG9yIGNvbnRhY3QgeW91ciBsb2NhbCBTQVAgU0UgRWR1Y2F0aW9uIG9mZmljZS48L3A+DQo8L2Rpdj4NCjxkaXYgY2xhc3M9InhfcW1fVElUTEUiPlJlc3VsdHMgYnkgdG9waWM6PC9kaXY+DQo8dGFibGUgY2xhc3M9InhfcW1fVE9QSUNfUU1TY29yaW5nIj4NCjx0Ym9keT4NCjx0ciBjbGFzcz0ieF9xbV9TSU5HTEVfVE9QSUMiPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX05BTUUiPlJvbGUtQmFzZWQgUGVybWlzc2lvbnMgZm9yIE9uYm9hcmRpbmcgYW5kIE9mZmJvYXJkaW5nPC90ZD4NCjx0ZCBjbGFzcz0ieF9xbV9UT1BJQ19TQ09SRSI+NjclPC90ZD4NCjx0ZCBub3dyYXA9InRydWUiIGNsYXNzPSJ4X3FtX1RPUElDX09VVENPTUUiPjwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfRkVFREJBQ0siPjwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSJ4X3FtX1NJTkdMRV9UT1BJQyI+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfTkFNRSI+UmVoaXJlIFByb2Nlc3Mgd2l0aCBPbmJvYXJkaW5nPC90ZD4NCjx0ZCBjbGFzcz0ieF9xbV9UT1BJQ19TQ09SRSI+NzElPC90ZD4NCjx0ZCBub3dyYXA9InRydWUiIGNsYXNzPSJ4X3FtX1RPUElDX09VVENPTUUiPjwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfRkVFREJBQ0siPjwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSJ4X3FtX1NJTkdMRV9UT1BJQyI+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfTkFNRSI+T2ZmYm9hcmRpbmcgUHJvY2VzczwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfU0NPUkUiPjU3JTwvdGQ+DQo8dGQgbm93cmFwPSJ0cnVlIiBjbGFzcz0ieF9xbV9UT1BJQ19PVVRDT01FIj48L3RkPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX0ZFRURCQUNLIj48L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ieF9xbV9TSU5HTEVfVE9QSUMiPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX05BTUUiPkRvY3VtZW50IFRlbXBsYXRlIE1hbmFnZW1lbnQgYW5kIGUtU2lnbmF0dXJlczwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfU0NPUkUiPjc1JTwvdGQ+DQo8dGQgbm93cmFwPSJ0cnVlIiBjbGFzcz0ieF9xbV9UT1BJQ19PVVRDT01FIj48L3RkPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX0ZFRURCQUNLIj48L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ieF9xbV9TSU5HTEVfVE9QSUMiPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX05BTUUiPk9uYm9hcmRpbmcgUHJvY2VzcyBhbmQgQ29tcGxpYW5jZSBTZXR0aW5nczwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfU0NPUkUiPjU5JTwvdGQ+DQo8dGQgbm93cmFwPSJ0cnVlIiBjbGFzcz0ieF9xbV9UT1BJQ19PVVRDT01FIj48L3RkPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX0ZFRURCQUNLIj48L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ieF9xbV9TSU5HTEVfVE9QSUMiPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX05BTUUiPkVzc2VudGlhbCBGZWF0dXJlcyBhbmQgUHJvdmlzaW9uaW5nIFNldHRpbmdzIHRvIEVuYWJsZSBPbmJvYXJkaW5nPC90ZD4NCjx0ZCBjbGFzcz0ieF9xbV9UT1BJQ19TQ09SRSI+MzMlPC90ZD4NCjx0ZCBub3dyYXA9InRydWUiIGNsYXNzPSJ4X3FtX1RPUElDX09VVENPTUUiPjwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfRkVFREJBQ0siPjwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSJ4X3FtX1NJTkdMRV9UT1BJQyI+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfTkFNRSI+T25ib2FyZGluZyBEYXRhIE1vZGVsIGFuZCBDdXN0b20gRGF0YSBDb2xsZWN0aW9uPC90ZD4NCjx0ZCBjbGFzcz0ieF9xbV9UT1BJQ19TQ09SRSI+NzAlPC90ZD4NCjx0ZCBub3dyYXA9InRydWUiIGNsYXNzPSJ4X3FtX1RPUElDX09VVENPTUUiPjwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfRkVFREJBQ0siPjwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSJ4X3FtX1NJTkdMRV9UT1BJQyI+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfTkFNRSI+SW50ZWdyYXRpb25zIHdpdGggT25ib2FyZGluZzwvdGQ+DQo8dGQgY2xhc3M9InhfcW1fVE9QSUNfU0NPUkUiPjE0JTwvdGQ+DQo8dGQgbm93cmFwPSJ0cnVlIiBjbGFzcz0ieF9xbV9UT1BJQ19PVVRDT01FIj48L3RkPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX0ZFRURCQUNLIj48L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ieF9xbV9TSU5HTEVfVE9QSUMiPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX05BTUUiPkVtYWlsIE5vdGlmaWNhdGlvbnMgVXNpbmcgRW1haWwgU2VydmljZXM8L3RkPg0KPHRkIGNsYXNzPSJ4X3FtX1RPUElDX1NDT1JFIj43NSU8L3RkPg0KPHRkIG5vd3JhcD0idHJ1ZSIgY2xhc3M9InhfcW1fVE9QSUNfT1VUQ09NRSI+PC90ZD4NCjx0ZCBjbGFzcz0ieF9xbV9UT1BJQ19GRUVEQkFDSyI+PC90ZD4NCjwvdHI+DQo8L3Rib2R5Pg0KPC90YWJsZT4NCjxkaXY+PC9kaXY+DQo8L3NwYW4+PC90ZD48L3RyPjx0cj48dGQgY2xhc3M9J0JvcmRlckJvdHRvbScgd2lkdGg9JzI1JSc+Uy1Vc2VyIElEPC90ZD48dGQgY2xhc3M9J0JvcmRlckJvdHRvbScgY29sc3Bhbj0nMyc+PHNwYW4gY2xhc3M9J0xvbGl0ZVRleHQnPjMwMkYyNjg0RTZDQjREOERCN0RFMDZDMTU3OEI3RDcyPC9zcGFuPjwvdGQ+PHRyPjx0cj48dGQgY2xhc3M9J0JvcmRlckJvdHRvbScgd2lkdGg9JzI1JSc+RXhhbSBuYW1lPC90ZD48dGQgY2xhc3M9J0JvcmRlckJvdHRvbScgd2lkdGg9JzI1JSc+PHNwYW4gY2xhc3M9J0xvbGl0ZVRleHQnPkNfVEhSOTdfMjMxMTwvc3Bhbj48L3RkPjx0ZCBjbGFzcz0nQm9yZGVyQm90dG9tJyB3aWR0aD0nMjUlJz5Ib3cgbXVjaCB5b3Ugc2NvcmVkIGluIHBlcmNlbnRhZ2U8L3RkPjx0ZCBjbGFzcz0nQm9yZGVyQm90dG9tJyB3aWR0aD0nMjUlJz48c3BhbiBjbGFzcz0nTG9saXRlVGV4dCc+NTglPC9zcGFuPjwvdGQ+PC90cj48dHI+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPllvdXIgZmlyc3QgbmFtZTwvdGQ+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPjxzcGFuIGNsYXNzPSdMb2xpdGVUZXh0Jz5WZXJvbmljYTwvc3Bhbj48L3RkPjx0ZCBjbGFzcz0nQm9yZGVyQm90dG9tJyB3aWR0aD0nMjUlJz5EYXRlL3RpbWUgc3RhcnRlZDwvdGQ+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPjxzcGFuIGNsYXNzPSdMb2xpdGVUZXh0Jz5BcHIgMDIgMjAyNCAwNTo0MTozMTwvc3Bhbj48L3RkPjwvdHI+PHRyPjx0ZCBjbGFzcz0nQm9yZGVyQm90dG9tJyB3aWR0aD0nMjUlJz5Zb3VyIGxhc3QgbmFtZTwvdGQ+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPjxzcGFuIGNsYXNzPSdMb2xpdGVUZXh0Jz5NaWVpbGE8L3NwYW4+PC90ZD48dGQgY2xhc3M9J0JvcmRlckJvdHRvbScgd2lkdGg9JzI1JSc+RGF0ZS90aW1lIGZpbmlzaGVkPC90ZD48dGQgY2xhc3M9J0JvcmRlckJvdHRvbScgd2lkdGg9JzI1JSc+PHNwYW4gY2xhc3M9J0xvbGl0ZVRleHQnPkFwciAwMiAyMDI0IDA3OjQyOjAwPC9zcGFuPjwvdGQ+PC90cj48dHI+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPllvdXIgZW1haWwgYWRkcmVzczwvdGQ+PHRkIGNsYXNzPSdCb3JkZXJCb3R0b20nIHdpZHRoPScyNSUnPjxzcGFuIGNsYXNzPSdMb2xpdGVUZXh0Jz52ZXJvbmljYS5taWVpbGFAcml6aW5nLmNvbTwvc3Bhbj48L3RkPjx0ZCBjbGFzcz0nQm9yZGVyQm90dG9tJyB3aWR0aD0nMjUlJz4mbmJzcDs8L3RkPjx0ZCBjbGFzcz0nQm9yZGVyQm90dG9tJyB3aWR0aD0nMjUlJz48c3BhbiBjbGFzcz0nTG9saXRlVGV4dCc+Jm5ic3A7PC9zcGFuPjwvdGQ+PC90cj48dHI+PHRkIHdpZHRoPScyNSUnPiZuYnNwOzwvdGQ+PHRkIHdpZHRoPScyNSUnPiZuYnNwOzwvdGQ+PHRkIHdpZHRoPScyNSUnPiZuYnNwOzwvdGQ+PHRkIHdpZHRoPScyNSUnPiZuYnNwOzwvdGQ+PC90cj48L3RhYmxlPmRkAgkPDxYCHwNlZGQCAQ9kFgQCAQ8PFgIfAwUJUXVlc3Rpb25zZGQCBw8PFgIfAwVwTm8gaW5mb3JtYXRpb24gaXMgc2VsZWN0ZWQgdG8gYmUgZGlzcGxheWVkLiBTZWxlY3Qg4oCcRWRpdCBTZXR0aW5ncyIgZnJvbSB0aGUg4oCcT3B0aW9uc+KAnSBsaW5rIHRvIHNlbGVjdCBzb21lLmRkAh0PDxYCHwNlZGQCHw8PFgIfAwVdPHNjcmlwdCBsYW5ndWFnZT0namF2YXNjcmlwdCc+dlNlbmRFbWFpbFBhbmVJc1Zpc2libGVPYmpJRD0nc2VuZEVtYWlsUGFuZUlzVmlzaWJsZSc7PC9zY3JpcHQ+ZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFggFKHVjU2VuZEVtYWlsRm9ybTpjaGtTZW5kQ29weVRvUGFydGljaXBhbnQFG3VjU2VuZEVtYWlsRm9ybTpjaGtTZW5kQ29weQUKaW1nYnRuSHRtbAULaW1nQnRuUHJpbnQFC2ltZ0J0bkVtYWlsBQtpbWdidG5FeGNlbAUKaW1nYnRuV29yZAUJaW1nYnRuUGRm0+k2PRwN4PBosLuADq4y1FgsJnOGGh3OZM0x05i5m/g=">
+
+<script language="javascript">var slblHeader = '_ctl0_lblHeader';</script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="373FA5CA">
+			<div id="divSendEmailPane" class="EmailReportInvisible" style="Z-INDEX: 101">
+<link href="./View and Edit_files/Reportlets.css" type="text/css" rel="stylesheet">
+<script>
+function ValidateForm()
+{	
+	if (document.getElementById(vSendObjID).value == vBack)
+	{
+		document.getElementById(hdnEMailBody_ClientID).value = HTMLDecode(stbMessage);
+		document.getElementById(vSendObjID).value = vSend;
+		ShowSendPage();
+		return false;	
+	}
+	else
+	{	
+		var oTo = document.getElementById(vToObjID);
+		var oFrom = document.getElementById(stbFrom);
+		var oBcc = document.getElementById(stbBcc);
+		var oCc = document.getElementById(stbCc);
+		var sError = "";
+		var myReg = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([,;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$/;
+		if (!myReg.test(oFrom.value))
+		{
+			sError += sErrFrom;
+		}	
+		if (!myReg.test(oTo.value))
+		{
+			sError += sErrTo;
+		}
+		if (oCc.value!= "" && !myReg.test(oCc.value))
+		{
+			sError += sErrCc;	
+		}
+		if (oBcc.value!= "" && !myReg.test(oBcc.value))
+		{
+			sError += sErrBcc;
+		}
+		if (sError == "")
+		{
+			document.getElementById(hdnEMailBody_ClientID).value = MakeHTMLSafe(stbMessage);
+			return true;
+		}
+		else
+		{
+			alert(sEmailErrMsg +sError);
+			return false;
+		}
+
+	}
+}
+function Close()
+{
+	if (sModule != "")
+		window.document.location.href="Main.aspx?module=" + sModule;
+	else
+		CloseEmailReport(); // This function is defined in ERSU/EditPreview.aspx, ERTA/TAPreview.aspx
+}
+
+function ShowConfirmationPage()
+{
+
+	document.getElementById(slblConfirmation).style.visibility = "visible";
+	document.getElementById(slblIntroduction).style.visibility = "hidden";
+	document.getElementById(slblFrom).style.visibility = "hidden";
+	document.getElementById(stbFrom).style.visibility = "hidden";
+	document.getElementById(slblTo).style.visibility = "hidden";
+	document.getElementById(stbTo).style.visibility = "hidden";
+	document.getElementById(slblCc).style.visibility = "hidden";
+	document.getElementById(stbCc).style.visibility = "hidden";
+	document.getElementById(slblBcc).style.visibility = "hidden";
+	document.getElementById(stbBcc).style.visibility = "hidden";
+	document.getElementById(slblSubject).style.visibility = "hidden";
+	document.getElementById(stbSubject).style.visibility = "hidden";
+	document.getElementById(slblMessage).style.visibility = "hidden";
+	document.getElementById(stbMessage).style.visibility = "hidden";
+	document.getElementById(schkSendCopy).style.visibility = "hidden";
+	document.getElementById(slblSendCopy).style.visibility = "hidden";	
+	//document.getElementById(schkSendCopy).value = "";			
+	if (document.getElementById(schkSendCopyToParticipant) != null)
+	{
+		document.getElementById(schkSendCopyToParticipant).style.visibility = "hidden";	
+	}
+	if (document.getElementById(slblSendCopyToParticipant) != null)
+	{
+		document.getElementById(slblSendCopyToParticipant).style.visibility = "hidden";
+	}
+	//document.getElementById(schkSendCopyToParticipant).value = "";
+}
+		
+function ShowSendPage()
+{
+	document.getElementById(slblConfirmation).innerHTML = "";
+	document.getElementById(slblIntroduction).style.visibility = "visible";
+	document.getElementById(slblFrom).style.visibility = "visible";
+	document.getElementById(stbFrom).style.visibility = "visible";
+	document.getElementById(slblTo).style.visibility = "visible";
+	document.getElementById(stbTo).style.visibility = "visible";
+	document.getElementById(slblCc).style.visibility = "visible";
+	document.getElementById(stbCc).style.visibility = "visible";
+	document.getElementById(slblBcc).style.visibility = "visible";
+	document.getElementById(stbBcc).style.visibility = "visible";
+	document.getElementById(slblSubject).style.visibility = "visible";
+	document.getElementById(stbSubject).style.visibility = "visible";
+	document.getElementById(slblMessage).style.visibility = "visible";
+	document.getElementById(stbMessage).style.visibility = "visible";
+	document.getElementById(schkSendCopy).style.visibility = "visible";
+	document.getElementById(slblSendCopy).style.visibility = "visible";	
+	if (document.getElementById(schkSendCopyToParticipant) != null)
+	{
+		document.getElementById(schkSendCopyToParticipant).style.visibility = "visible";			
+	}
+	if (document.getElementById(slblSendCopyToParticipant) != null)
+	{
+		document.getElementById(slblSendCopyToParticipant).style.visibility = "visible";	
+	}
+	document.getElementById(stbTo).focus();
+}
+
+function MakeHTMLSafe(fieldName)
+{
+	
+	var sSource = document.getElementById(fieldName).value;	
+	rExp = /&/gi;
+	sSource = sSource.replace(rExp, "&amp;");
+	rExp = /</gi;
+	sSource = sSource.replace(rExp, "&lt;");
+	rExp = />/gi;
+	sSource = sSource.replace(rExp, "&gt;");
+	rExp = /"/gi;
+	sSource = sSource.replace(rExp, "&quot;");			
+	//sSource = sSource.replace("<", "&quot;");	
+	//rExp = /\\n/gi;
+	//sSource = sSource.replace(rExp, "&ltbr&gt");
+	//rExp = /\\t/gi;
+	//sSource = sSource.replace(rExp, "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
+	//sSource = sSource.replace("  ", "&nbsp;&nbsp;");
+	
+	document.getElementById(fieldName).value = sSource;	
+	return sSource;
+}
+
+function HTMLDecode(fieldName)
+{
+	
+	var sSource = document.getElementById(fieldName).value;	
+	rExp = /&amp/gi;
+	sSource = sSource.replace(rExp, "&;");
+	rExp = /&lt;/gi;
+	sSource = sSource.replace(rExp, "<");
+	rExp = /&gt;/gi;
+	sSource = sSource.replace(rExp, ">");
+	rExp = /&quot;/gi;
+	sSource = sSource.replace(rExp, "\"");			
+	//sSource = sSource.replace("<", "&quot;");	
+	//rExp = /\\n/gi;
+	//sSource = sSource.replace(rExp, "&ltbr&gt");
+	//rExp = /\\t/gi;
+	//sSource = sSource.replace(rExp, "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
+	//sSource = sSource.replace("  ", "&nbsp;&nbsp;");
+	
+	document.getElementById(fieldName).value = sSource;	
+	return sSource;
+}
+
+</script>
+<table class="EmailReportTable" cellspacing="0" cellpadding="0">
+	<tbody><tr bgcolor="#ffffd2">
+		<td class="DivIntroTd" colspan="2"><span id="ucSendEmailForm_lblIntroduction" class="DivFont" style="visibility: hidden;">Enter the recipient details</span>&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="DivTd" colspan="2"><br>
+			<span id="ucSendEmailForm_lblConfirmation" class="DivFont" style="visibility: hidden;"></span></td>
+	</tr>
+	<tr>
+		<td class="DivTd" width="100"><br>
+			<span id="ucSendEmailForm_lblFrom" class="DivFont" style="visibility: hidden;">From</span></td>
+		<td class="DivTd"><br>
+			<input name="ucSendEmailForm:tbFrom" type="text" id="ucSendEmailForm_tbFrom" class="DivTextbox" style="visibility: hidden;"></td>
+	</tr>
+	<tr>
+		<td class="DivTd"><span id="ucSendEmailForm_lblTo" class="DivFont" style="visibility: hidden;">To:</span></td>
+		<td class="DivTd"><input name="ucSendEmailForm:tbTo" type="text" id="ucSendEmailForm_tbTo" class="DivTextbox" style="visibility: hidden;"></td>
+	</tr>
+	<tr>
+		<td class="DivTd"><span id="ucSendEmailForm_lblCc" class="DivFont" style="visibility: hidden;">Cc:</span></td>
+		<td class="DivTd"><input name="ucSendEmailForm:tbCc" type="text" id="ucSendEmailForm_tbCc" class="DivTextbox" style="visibility: hidden;"></td>
+	</tr>
+	<tr>
+		<td class="DivTd"><span id="ucSendEmailForm_lblBcc" class="DivFont" style="visibility: hidden;">Bcc:</span></td>
+		<td class="DivTd"><input name="ucSendEmailForm:tbBcc" type="text" id="ucSendEmailForm_tbBcc" class="DivTextbox" style="visibility: hidden;"></td>
+	</tr>
+	<tr>
+		<td class="DivTd"><span id="ucSendEmailForm_lblSubject" class="DivFont" style="visibility: hidden;">Subject:</span></td>
+		<td class="DivTd"><input name="ucSendEmailForm:tbSubject" type="text" id="ucSendEmailForm_tbSubject" class="DivTextbox" style="visibility: hidden;"></td>
+	</tr>
+	<tr>
+		<td class="DivTd" valign="top"><span id="ucSendEmailForm_lblMessage" class="DivFont" style="visibility: hidden;">Message:</span></td>
+		<td class="DivTd"><textarea name="ucSendEmailForm:tbMessage" id="ucSendEmailForm_tbMessage" class="DivTextPad" style="visibility: hidden;"></textarea></td>
+	</tr>
+	<tr>
+		<td class="DivTd">&nbsp;<br>
+		</td>
+		<td class="DivTd">
+			<span class="DivFont"><input id="ucSendEmailForm_chkSendCopyToParticipant" type="checkbox" name="ucSendEmailForm:chkSendCopyToParticipant" style="visibility: hidden;"></span>&nbsp;
+			<span id="ucSendEmailForm_lblSendCopyToParticipant" class="DivFont" style="visibility: hidden;">Send copy to participant</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="DivTd">&nbsp;<br>
+		</td>
+		<td class="DivTd"><span class="DivFont"><input id="ucSendEmailForm_chkSendCopy" type="checkbox" name="ucSendEmailForm:chkSendCopy" style="visibility: hidden;"></span>&nbsp;
+			<span id="ucSendEmailForm_lblSendCopy" class="DivFont" style="visibility: hidden;">Send copy to self</span></td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr bgcolor="#eaeaea">
+		<td class="DivButTd" colspan="2"><input type="submit" name="ucSendEmailForm:btnSendEmail" value="Send" onclick="javascript:return ValidateForm();" language="javascript" id="ucSendEmailForm_btnSendEmail" class="DivFont">&nbsp;
+			<input name="ucSendEmailForm:btnClose" type="button" id="ucSendEmailForm_btnClose" class="DivFont" onclick="Close();" value="Close">
+		</td>
+	</tr>
+</tbody></table>
+<span id="ucSendEmailForm_lblJavaScript"><script language="javascript">var vToObjID="ucSendEmailForm_tbTo";var vSendObjID="ucSendEmailForm_btnSendEmail";var vSend="Send";var vBack="Back";var vSendCopy="Send copy to self";var sEmailErrMsg="The following fields contain invalid email address : ";var sErrFrom="\n    From";var sErrTo="\n    To";var sErrBcc="\n    Bcc";var sErrCc="\n    Cc";var slblConfirmation="ucSendEmailForm_lblConfirmation";var slblIntroduction="ucSendEmailForm_lblIntroduction";var slblFrom="ucSendEmailForm_lblFrom";var stbFrom="ucSendEmailForm_tbFrom";var slblTo="ucSendEmailForm_lblTo";var stbTo="ucSendEmailForm_tbTo";var slblCc="ucSendEmailForm_lblCc";var stbCc="ucSendEmailForm_tbCc";var slblBcc="ucSendEmailForm_lblBcc";var stbBcc="ucSendEmailForm_tbBcc";var slblSubject="ucSendEmailForm_lblSubject";var stbSubject="ucSendEmailForm_tbSubject";var slblMessage="ucSendEmailForm_lblMessage";var stbMessage="ucSendEmailForm_tbMessage";var schkSendCopy="ucSendEmailForm_chkSendCopy";var slblSendCopy="ucSendEmailForm_lblSendCopy";var schkSendCopy="ucSendEmailForm_chkSendCopy";var slblSendCopyToParticipant="ucSendEmailForm_lblSendCopyToParticipant";var schkSendCopyToParticipant="ucSendEmailForm_chkSendCopyToParticipant";var sModule='';var hdnEMailBody_ClientID="ucSendEmailForm_hdnEMailBody";document.getElementById(stbFrom).value='';</script></span>
+<input name="ucSendEmailForm:hdnEMailBody" type="hidden" id="ucSendEmailForm_hdnEMailBody"> <input name="ucSendEmailForm:hdnParticipantEmail" type="hidden" id="ucSendEmailForm_hdnParticipantEmail">
+</div>
+			<table style="BACKGROUND-COLOR: #ebebeb" height="40" width="100%">
+				<tbody><tr>
+					<td style="PADDING-RIGHT: 15px" align="right"><input type="submit" name="btnSave" value="Save" id="btnSave" title="Save to My Reports" class="SaveButton" style="visibility:hidden;">&nbsp;
+						<input type="submit" name="btnSaveAs" value="Save As" id="btnSaveAs" title="Save As new report to My Reports" class="SaveButton" style="visibility:hidden;">&nbsp;</td>
+				</tr>
+			</tbody></table>
+			<br>
+			<table width="98%" align="center">
+				<tbody><tr>
+					<td>
+						<table width="100%">
+							<tbody><tr>
+								<td align="right">
+									<input type="image" name="imgbtnHtml" id="imgbtnHtml" src="./View and Edit_files/htmldoc.gif" alt="Browser (HTML)" border="0" style="visibility:hidden;">&nbsp;
+									<input type="image" name="imgBtnPrint" id="imgBtnPrint" src="./View and Edit_files/printer.gif" alt="Printer Friendly (HTML)" border="0" style="visibility:hidden;">&nbsp;
+									<input type="image" name="imgBtnEmail" id="imgBtnEmail" src="./View and Edit_files/mail.gif" alt="Email (HTML)" border="0" onclick="javascript:return ShowEmailReportPane(true);" language="javascript" style="visibility:hidden;">&nbsp;
+									<input type="image" name="imgbtnExcel" id="imgbtnExcel" src="./View and Edit_files/xlsdoc.gif" alt="Export to Excel" border="0" style="visibility:hidden;">&nbsp;
+									<input type="image" name="imgbtnWord" id="imgbtnWord" src="./View and Edit_files/worddoc.gif" alt="Export to Word" border="0" style="visibility:hidden;">&nbsp;
+									<input type="image" name="imgbtnPdf" id="imgbtnPdf" src="./View and Edit_files/pdfdoc.gif" alt="Export to Pdf" border="0" style="visibility:hidden;"></td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td><span id="lblHeader"></span></td>
+				</tr>
+				<tr>
+					<td>
+
+	&nbsp;
+	<table class="PrintTable" style="page-break-inside: avoid" cellspacing="0" cellpadding="0"><tbody><tr>
+		<td>
+			<table class="ReportletTableMain" cellspacing="0" cellpadding="0">
+				<tbody><tr>
+					<td colspan="2" style="width: 100%;">
+						<table class="ReportletTable" cellspacing="0" cellpadding="0">
+							<tbody><tr>
+								<td class="ReportTitle" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; width: 85%;" align="center"><span id="_ctl0_lblHeader">Score Report</span><br>
+									<span id="_ctl0_lblVerifyResultSignature"></span></td>
+								<td class="ReportTitle" style="PADDING-BOTTOM: 5px; PADDING-TOP: 5px;width: 10%" valign="top" align="right"></td>
+							</tr>
+						</tbody></table>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" colspan="2"><span id="_ctl0_lblBody"><table width="100%" cellpadding="0" cellspacing="0"><tbody><tr><td class="BorderBottom" width="25%">Result</td><td class="BorderBottom" colspan="3"><span class="LoliteText">
+<div class="x_qm_ASSESSMENT_OUTCOME">
+<p>Congratulations! You passed the exam. Once SAP SE has verified your results, you will be able to claim your SAP Digital Badge.</p>
+</div>
+<div class="x_qm_TITLE">Results by topic:</div>
+<table class="x_qm_TOPIC_QMScoring">
+<tbody>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Role-Based Permissions for Onboarding and Offboarding</td>
+<td class="x_qm_TOPIC_SCORE">67%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Rehire Process with Onboarding</td>
+<td class="x_qm_TOPIC_SCORE">71%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Offboarding Process</td>
+<td class="x_qm_TOPIC_SCORE">57%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Document Template Management and e-Signatures</td>
+<td class="x_qm_TOPIC_SCORE">75%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Onboarding Process and Compliance Settings</td>
+<td class="x_qm_TOPIC_SCORE">59%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Essential Features and Provisioning Settings to Enable Onboarding</td>
+<td class="x_qm_TOPIC_SCORE">33%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Onboarding Data Model and Custom Data Collection</td>
+<td class="x_qm_TOPIC_SCORE">70%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Integrations with Onboarding</td>
+<td class="x_qm_TOPIC_SCORE">84%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+<tr class="x_qm_SINGLE_TOPIC">
+<td class="x_qm_TOPIC_NAME">Email Notifications Using Email Services</td>
+<td class="x_qm_TOPIC_SCORE">75%</td>
+<td nowrap="true" class="x_qm_TOPIC_OUTCOME"></td>
+<td class="x_qm_TOPIC_FEEDBACK"></td>
+</tr>
+</tbody>
+</table>
+<div></div>
+</span></td></tr><tr><td class="BorderBottom" width="25%">S-User ID</td><td class="BorderBottom" colspan="3"><span class="LoliteText">302F2684E6CB4D8DB7DE06C1578B7D72</span></td></tr><tr></tr><tr><td class="BorderBottom" width="25%">Exam name</td><td class="BorderBottom" width="25%"><span class="LoliteText">C_THR97_2311</span></td><td class="BorderBottom" width="25%">How much you scored in percentage</td><td class="BorderBottom" width="25%"><span class="LoliteText">68%</span></td></tr><tr><td class="BorderBottom" width="25%">Your first name</td><td class="BorderBottom" width="25%"><span class="LoliteText">Veronica</span></td><td class="BorderBottom" width="25%">Date/time started</td><td class="BorderBottom" width="25%"><span class="LoliteText">Apr 01 2024 05:41:31</span></td></tr><tr><td class="BorderBottom" width="25%">Your last name</td><td class="BorderBottom" width="25%"><span class="LoliteText">Mieila</span></td><td class="BorderBottom" width="25%">Date/time finished</td><td class="BorderBottom" width="25%"><span class="LoliteText">Apr 01 2024 07:42:00</span></td></tr><tr><td class="BorderBottom" width="25%">Your email address</td><td class="BorderBottom" width="25%"><span class="LoliteText">veronica.mieila@rizing.com</span></td><td class="BorderBottom" width="25%">&nbsp;</td><td class="BorderBottom" width="25%"><span class="LoliteText">&nbsp;</span></td></tr><tr><td width="25%">&nbsp;</td><td width="25%">&nbsp;</td><td width="25%">&nbsp;</td><td width="25%">&nbsp;</td></tr></tbody></table></span></td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<span id="_ctl0_lblSeparator"></span>
+
+<table class="PrintTable" style="page-break-inside: avoid" cellspacing="0" cellpadding="0">
+	<tbody><tr class="ReportletHeader" style="width: 100%;">
+		<td style="PADDING-RIGHT: 0px;width: 90%" align="left"><span id="_ctl1_lblHeader">Questions</span>
+		</td>
+		<td valign="top" align="right" style="width: 10%">
+			
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="_ctl1_lblFirstQuestion"></span></td>
+	</tr>
+</tbody></table>
+<span id="_ctl1_lblQuestionBody">No information is selected to be displayed. Select “Edit Settings" from the “Options” link to select some.</span><span id="_ctl1_lblSeparator"></span>
+
+
+
+
+<style type="text/css">
+    .ql-container{
+    box-sizing:border-box;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:13px;
+    height:100%;
+    margin:0;
+    position:relative
+}
+.ql-container.ql-disabled .ql-tooltip{
+    visibility:hidden
+}
+.ql-container.ql-disabled .ql-editor ul[data-checked]>li::before{
+    pointer-events:none
+}
+.ql-clipboard{
+    left:-100000px;
+    height:1px;
+    overflow-y:hidden;
+    position:absolute;
+    top:50%
+}
+.ql-clipboard p{
+    margin:0;
+    padding:0
+}
+.ql-editor{
+    box-sizing:border-box;
+    line-height:1.42;
+    height:100%;
+    outline:0;
+    overflow-y:auto;
+    padding:12px 15px;
+    tab-size:4;
+    -moz-tab-size:4;
+    text-align:left;
+    white-space:pre-wrap;
+    word-wrap:break-word
+}
+.ql-editor>*{
+    cursor:text
+}
+.ql-editor blockquote,.ql-editor h1,.ql-editor h2,.ql-editor h3,.ql-editor h4,.ql-editor h5,.ql-editor h6,.ql-editor ol,.ql-editor p,.ql-editor pre,.ql-editor ul{
+    margin:0;
+    padding:0;
+    counter-reset:list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9
+}
+.ql-editor ol,.ql-editor ul{
+    padding-left:1.5em
+}
+.ql-editor ol>li,.ql-editor ul>li{
+    list-style-type:none
+}
+.ql-editor ul>li::before{
+    content:'\2022'
+}
+.ql-editor ul[data-checked=false],.ql-editor ul[data-checked=true]{
+    pointer-events:none
+}
+.ql-editor ul[data-checked=false]>li *,.ql-editor ul[data-checked=true]>li *{
+    pointer-events:all
+}
+.ql-editor ul[data-checked=false]>li::before,.ql-editor ul[data-checked=true]>li::before{
+    color:#777;
+    cursor:pointer;
+    pointer-events:all
+}
+.ql-editor ul[data-checked=true]>li::before{
+    content:'\2611'
+}
+.ql-editor ul[data-checked=false]>li::before{
+    content:'\2610'
+}
+.ql-editor li::before{
+    display:inline-block;
+    white-space:nowrap;
+    width:1.2em
+}
+.ql-editor li:not(.ql-direction-rtl)::before{
+    margin-left:-1.5em;
+    margin-right:.3em;
+    text-align:right
+}
+.ql-editor li.ql-direction-rtl::before{
+    margin-left:.3em;
+    margin-right:-1.5em
+}
+.ql-editor ol li:not(.ql-direction-rtl),.ql-editor ul li:not(.ql-direction-rtl){
+    padding-left:1.5em
+}
+.ql-editor ol li.ql-direction-rtl,.ql-editor ul li.ql-direction-rtl{
+    padding-right:1.5em
+}
+.ql-editor ol li{
+    counter-reset:list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+    counter-increment:list-0
+}
+.ql-editor ol li:before{
+    content:counter(list-0,decimal) '. '
+}
+.ql-editor ol li.ql-indent-1{
+    counter-increment:list-1
+}
+.ql-editor ol li.ql-indent-1:before{
+    content:counter(list-1,lower-alpha) '. '
+}
+.ql-editor ol li.ql-indent-1{
+    counter-reset:list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9
+}
+.ql-editor ol li.ql-indent-2{
+    counter-increment:list-2
+}
+.ql-editor ol li.ql-indent-2:before{
+    content:counter(list-2,lower-roman) '. '
+}
+.ql-editor ol li.ql-indent-2{
+    counter-reset:list-3 list-4 list-5 list-6 list-7 list-8 list-9
+}
+.ql-editor ol li.ql-indent-3{
+    counter-increment:list-3
+}
+.ql-editor ol li.ql-indent-3:before{
+    content:counter(list-3,decimal) '. '
+}
+.ql-editor ol li.ql-indent-3{
+    counter-reset:list-4 list-5 list-6 list-7 list-8 list-9
+}
+.ql-editor ol li.ql-indent-4{
+    counter-increment:list-4
+}
+.ql-editor ol li.ql-indent-4:before{
+    content:counter(list-4,lower-alpha) '. '
+}
+.ql-editor ol li.ql-indent-4{
+    counter-reset:list-5 list-6 list-7 list-8 list-9
+}
+.ql-editor ol li.ql-indent-5{
+    counter-increment:list-5
+}
+.ql-editor ol li.ql-indent-5:before{
+    content:counter(list-5,lower-roman) '. '
+}
+.ql-editor ol li.ql-indent-5{
+    counter-reset:list-6 list-7 list-8 list-9
+}
+.ql-editor ol li.ql-indent-6{
+    counter-increment:list-6
+}
+.ql-editor ol li.ql-indent-6:before{
+    content:counter(list-6,decimal) '. '
+}
+.ql-editor ol li.ql-indent-6{
+    counter-reset:list-7 list-8 list-9
+}
+.ql-editor ol li.ql-indent-7{
+    counter-increment:list-7
+}
+.ql-editor ol li.ql-indent-7:before{
+    content:counter(list-7,lower-alpha) '. '
+}
+.ql-editor ol li.ql-indent-7{
+    counter-reset:list-8 list-9
+}
+.ql-editor ol li.ql-indent-8{
+    counter-increment:list-8
+}
+.ql-editor ol li.ql-indent-8:before{
+    content:counter(list-8,lower-roman) '. '
+}
+.ql-editor ol li.ql-indent-8{
+    counter-reset:list-9
+}
+.ql-editor ol li.ql-indent-9{
+    counter-increment:list-9
+}
+.ql-editor ol li.ql-indent-9:before{
+    content:counter(list-9,decimal) '. '
+}
+.ql-editor .ql-indent-1:not(.ql-direction-rtl){
+    padding-left:3em
+}
+.ql-editor li.ql-indent-1:not(.ql-direction-rtl){
+    padding-left:4.5em
+}
+.ql-editor .ql-indent-1.ql-direction-rtl.ql-align-right{
+    padding-right:3em
+}
+.ql-editor li.ql-indent-1.ql-direction-rtl.ql-align-right{
+    padding-right:4.5em
+}
+.ql-editor .ql-indent-2:not(.ql-direction-rtl){
+    padding-left:6em
+}
+.ql-editor li.ql-indent-2:not(.ql-direction-rtl){
+    padding-left:7.5em
+}
+.ql-editor .ql-indent-2.ql-direction-rtl.ql-align-right{
+    padding-right:6em
+}
+.ql-editor li.ql-indent-2.ql-direction-rtl.ql-align-right{
+    padding-right:7.5em
+}
+.ql-editor .ql-indent-3:not(.ql-direction-rtl){
+    padding-left:9em
+}
+.ql-editor li.ql-indent-3:not(.ql-direction-rtl){
+    padding-left:10.5em
+}
+.ql-editor .ql-indent-3.ql-direction-rtl.ql-align-right{
+    padding-right:9em
+}
+.ql-editor li.ql-indent-3.ql-direction-rtl.ql-align-right{
+    padding-right:10.5em
+}
+.ql-editor .ql-indent-4:not(.ql-direction-rtl){
+    padding-left:12em
+}
+.ql-editor li.ql-indent-4:not(.ql-direction-rtl){
+    padding-left:13.5em
+}
+.ql-editor .ql-indent-4.ql-direction-rtl.ql-align-right{
+    padding-right:12em
+}
+.ql-editor li.ql-indent-4.ql-direction-rtl.ql-align-right{
+    padding-right:13.5em
+}
+.ql-editor .ql-indent-5:not(.ql-direction-rtl){
+    padding-left:15em
+}
+.ql-editor li.ql-indent-5:not(.ql-direction-rtl){
+    padding-left:16.5em
+}
+.ql-editor .ql-indent-5.ql-direction-rtl.ql-align-right{
+    padding-right:15em
+}
+.ql-editor li.ql-indent-5.ql-direction-rtl.ql-align-right{
+    padding-right:16.5em
+}
+.ql-editor .ql-indent-6:not(.ql-direction-rtl){
+    padding-left:18em
+}
+.ql-editor li.ql-indent-6:not(.ql-direction-rtl){
+    padding-left:19.5em
+}
+.ql-editor .ql-indent-6.ql-direction-rtl.ql-align-right{
+    padding-right:18em
+}
+.ql-editor li.ql-indent-6.ql-direction-rtl.ql-align-right{
+    padding-right:19.5em
+}
+.ql-editor .ql-indent-7:not(.ql-direction-rtl){
+    padding-left:21em
+}
+.ql-editor li.ql-indent-7:not(.ql-direction-rtl){
+    padding-left:22.5em
+}
+.ql-editor .ql-indent-7.ql-direction-rtl.ql-align-right{
+    padding-right:21em
+}
+.ql-editor li.ql-indent-7.ql-direction-rtl.ql-align-right{
+    padding-right:22.5em
+}
+.ql-editor .ql-indent-8:not(.ql-direction-rtl){
+    padding-left:24em
+}
+.ql-editor li.ql-indent-8:not(.ql-direction-rtl){
+    padding-left:25.5em
+}
+.ql-editor .ql-indent-8.ql-direction-rtl.ql-align-right{
+    padding-right:24em
+}
+.ql-editor li.ql-indent-8.ql-direction-rtl.ql-align-right{
+    padding-right:25.5em
+}
+.ql-editor .ql-indent-9:not(.ql-direction-rtl){
+    padding-left:27em
+}
+.ql-editor li.ql-indent-9:not(.ql-direction-rtl){
+    padding-left:28.5em
+}
+.ql-editor .ql-indent-9.ql-direction-rtl.ql-align-right{
+    padding-right:27em
+}
+.ql-editor li.ql-indent-9.ql-direction-rtl.ql-align-right{
+    padding-right:28.5em
+}
+.ql-editor .ql-video{
+    display:block;
+    max-width:100%
+}
+.ql-editor .ql-video.ql-align-center{
+    margin:0 auto
+}
+.ql-editor .ql-video.ql-align-right{
+    margin:0 0 0 auto
+}
+.ql-editor .ql-bg-black{
+    background-color:#000
+}
+.ql-editor .ql-bg-red{
+    background-color:#e60000
+}
+.ql-editor .ql-bg-orange{
+    background-color:#f90
+}
+.ql-editor .ql-bg-yellow{
+    background-color:#ff0
+}
+.ql-editor .ql-bg-green{
+    background-color:#008a00
+}
+.ql-editor .ql-bg-blue{
+    background-color:#06c
+}
+.ql-editor .ql-bg-purple{
+    background-color:#93f
+}
+.ql-editor .ql-color-white{
+    color:#fff
+}
+.ql-editor .ql-color-red{
+    color:#e60000
+}
+.ql-editor .ql-color-orange{
+    color:#f90
+}
+.ql-editor .ql-color-yellow{
+    color:#ff0
+}
+.ql-editor .ql-color-green{
+    color:#008a00
+}
+.ql-editor .ql-color-blue{
+    color:#06c
+}
+.ql-editor .ql-color-purple{
+    color:#93f
+}
+.ql-editor .ql-font-serif{
+    font-family:Georgia,Times New Roman,serif
+}
+.ql-editor .ql-font-monospace{
+    font-family:Monaco,Courier New,monospace
+}
+.ql-editor .ql-size-small{
+    font-size:.75em
+}
+.ql-editor .ql-size-large{
+    font-size:1.5em
+}
+.ql-editor .ql-size-huge{
+    font-size:2.5em
+}
+.ql-editor .ql-direction-rtl{
+    direction:rtl;
+    text-align:inherit
+}
+.ql-editor .ql-align-center{
+    text-align:center
+}
+.ql-editor .ql-align-justify{
+    text-align:justify
+}
+.ql-editor .ql-align-right{
+    text-align:right
+}
+.ql-editor.ql-blank::before{
+    color:rgba(0,0,0,.6);
+    content:attr(data-placeholder);
+    font-style:italic;
+    left:15px;
+    pointer-events:none;
+    position:absolute;
+    right:15px
+}
+.ql-snow .ql-toolbar:after,.ql-snow.ql-toolbar:after{
+    clear:both;
+    content:'';
+    display:table
+}
+.ql-snow .ql-toolbar button,.ql-snow.ql-toolbar button{
+    background:0 0;
+    border:none;
+    cursor:pointer;
+    display:inline-block;
+    float:left;
+    height:24px;
+    padding:3px 5px;
+    width:28px
+}
+.ql-snow .ql-toolbar button svg,.ql-snow.ql-toolbar button svg{
+    float:left;
+    height:100%
+}
+.ql-snow .ql-toolbar button:active:hover,.ql-snow.ql-toolbar button:active:hover{
+    outline:0
+}
+.ql-snow .ql-toolbar input.ql-image[type=file],.ql-snow.ql-toolbar input.ql-image[type=file]{
+    display:none
+}
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected,.ql-snow .ql-toolbar .ql-picker-item:hover,.ql-snow .ql-toolbar .ql-picker-label.ql-active,.ql-snow .ql-toolbar .ql-picker-label:hover,.ql-snow .ql-toolbar button.ql-active,.ql-snow .ql-toolbar button:focus,.ql-snow .ql-toolbar button:hover,.ql-snow.ql-toolbar .ql-picker-item.ql-selected,.ql-snow.ql-toolbar .ql-picker-item:hover,.ql-snow.ql-toolbar .ql-picker-label.ql-active,.ql-snow.ql-toolbar .ql-picker-label:hover,.ql-snow.ql-toolbar button.ql-active,.ql-snow.ql-toolbar button:focus,.ql-snow.ql-toolbar button:hover{
+    color:#06c
+}
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,.ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,.ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,.ql-snow .ql-toolbar button.ql-active .ql-fill,.ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,.ql-snow .ql-toolbar button:focus .ql-fill,.ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,.ql-snow .ql-toolbar button:hover .ql-fill,.ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,.ql-snow.ql-toolbar button.ql-active .ql-fill,.ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,.ql-snow.ql-toolbar button:focus .ql-fill,.ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,.ql-snow.ql-toolbar button:hover .ql-fill,.ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill{
+    fill:#06c
+}
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,.ql-snow .ql-toolbar button.ql-active .ql-stroke,.ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,.ql-snow .ql-toolbar button:focus .ql-stroke,.ql-snow .ql-toolbar button:focus .ql-stroke-miter,.ql-snow .ql-toolbar button:hover .ql-stroke,.ql-snow .ql-toolbar button:hover .ql-stroke-miter,.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,.ql-snow.ql-toolbar button.ql-active .ql-stroke,.ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,.ql-snow.ql-toolbar button:focus .ql-stroke,.ql-snow.ql-toolbar button:focus .ql-stroke-miter,.ql-snow.ql-toolbar button:hover .ql-stroke,.ql-snow.ql-toolbar button:hover .ql-stroke-miter{
+    stroke:#06c
+}
+@media (pointer:coarse){
+    .ql-snow .ql-toolbar button:hover:not(.ql-active),.ql-snow.ql-toolbar button:hover:not(.ql-active){
+        color:#444
+    }
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,.ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill,.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill{
+        fill:#444
+    }
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,.ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,.ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter{
+        stroke:#444
+    }
+}
+.ql-snow{
+    box-sizing:border-box
+}
+.ql-snow *{
+    box-sizing:border-box
+}
+.ql-snow .ql-hidden{
+    display:none
+}
+.ql-snow .ql-out-bottom,.ql-snow .ql-out-top{
+    visibility:hidden
+}
+.ql-snow .ql-tooltip{
+    position:absolute;
+    transform:translateY(10px)
+}
+.ql-snow .ql-tooltip a{
+    cursor:pointer;
+    text-decoration:none
+}
+.ql-snow .ql-tooltip.ql-flip{
+    transform:translateY(-10px)
+}
+.ql-snow .ql-formats{
+    display:inline-block;
+    vertical-align:middle
+}
+.ql-snow .ql-formats:after{
+    clear:both;
+    content:'';
+    display:table
+}
+.ql-snow .ql-stroke{
+    fill:none;
+    stroke:#444;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:2
+}
+.ql-snow .ql-stroke-miter{
+    fill:none;
+    stroke:#444;
+    stroke-miterlimit:10;
+    stroke-width:2
+}
+.ql-snow .ql-fill,.ql-snow .ql-stroke.ql-fill{
+    fill:#444
+}
+.ql-snow .ql-empty{
+    fill:none
+}
+.ql-snow .ql-even{
+    fill-rule:evenodd
+}
+.ql-snow .ql-stroke.ql-thin,.ql-snow .ql-thin{
+    stroke-width:1
+}
+.ql-snow .ql-transparent{
+    opacity:.4
+}
+.ql-snow .ql-direction svg:last-child{
+    display:none
+}
+.ql-snow .ql-direction.ql-active svg:last-child{
+    display:inline
+}
+.ql-snow .ql-direction.ql-active svg:first-child{
+    display:none
+}
+.ql-snow .ql-editor h1{
+    font-size:2em
+}
+.ql-snow .ql-editor h2{
+    font-size:1.5em
+}
+.ql-snow .ql-editor h3{
+    font-size:1.17em
+}
+.ql-snow .ql-editor h4{
+    font-size:1em
+}
+.ql-snow .ql-editor h5{
+    font-size:.83em
+}
+.ql-snow .ql-editor h6{
+    font-size:.67em
+}
+.ql-snow .ql-editor a{
+    text-decoration:underline
+}
+.ql-snow .ql-editor blockquote{
+    border-left:4px solid #ccc;
+    margin-bottom:5px;
+    margin-top:5px;
+    padding-left:16px
+}
+.ql-snow .ql-editor code,.ql-snow .ql-editor pre{
+    background-color:#f0f0f0;
+    border-radius:3px
+}
+.ql-snow .ql-editor pre{
+    white-space:pre-wrap;
+    margin-bottom:5px;
+    margin-top:5px;
+    padding:5px 10px
+}
+.ql-snow .ql-editor code{
+    font-size:85%;
+    padding:2px 4px
+}
+.ql-snow .ql-editor pre.ql-syntax{
+    background-color:#23241f;
+    color:#f8f8f2;
+    overflow:visible
+}
+.ql-snow .ql-editor img{
+    max-width:100%
+}
+.ql-snow .ql-picker{
+    color:#444;
+    display:inline-block;
+    float:left;
+    font-size:14px;
+    font-weight:500;
+    height:24px;
+    position:relative;
+    vertical-align:middle
+}
+.ql-snow .ql-picker-label{
+    cursor:pointer;
+    display:inline-block;
+    height:100%;
+    padding-left:8px;
+    padding-right:2px;
+    position:relative;
+    width:100%
+}
+.ql-snow .ql-picker-label::before{
+    display:inline-block;
+    line-height:22px
+}
+.ql-snow .ql-picker-options{
+    background-color:#fff;
+    display:none;
+    min-width:100%;
+    padding:4px 8px;
+    position:absolute;
+    white-space:nowrap
+}
+.ql-snow .ql-picker-options .ql-picker-item{
+    cursor:pointer;
+    display:block;
+    padding-bottom:5px;
+    padding-top:5px
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label{
+    color:#ccc;
+    z-index:2
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill{
+    fill:#ccc
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke{
+    stroke:#ccc
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-options{
+    display:block;
+    margin-top:-1px;
+    top:100%;
+    z-index:1
+}
+.ql-snow .ql-color-picker,.ql-snow .ql-icon-picker{
+    width:28px
+}
+.ql-snow .ql-color-picker .ql-picker-label,.ql-snow .ql-icon-picker .ql-picker-label{
+    padding:2px 4px
+}
+.ql-snow .ql-color-picker .ql-picker-label svg,.ql-snow .ql-icon-picker .ql-picker-label svg{
+    right:4px
+}
+.ql-snow .ql-icon-picker .ql-picker-options{
+    padding:4px 0
+}
+.ql-snow .ql-icon-picker .ql-picker-item{
+    height:24px;
+    width:24px;
+    padding:2px 4px
+}
+.ql-snow .ql-color-picker .ql-picker-options{
+    padding:3px 5px;
+    width:152px
+}
+.ql-snow .ql-color-picker .ql-picker-item{
+    border:1px solid transparent;
+    float:left;
+    height:16px;
+    margin:2px;
+    padding:0;
+    width:16px
+}
+.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg{
+    position:absolute;
+    margin-top:-9px;
+    right:0;
+    top:50%;
+    width:18px
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,.ql-snow .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,.ql-snow .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,.ql-snow .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=''])::before,.ql-snow .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=''])::before{
+    content:attr(data-label)
+}
+.ql-snow .ql-picker.ql-header{
+    width:98px
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item::before,.ql-snow .ql-picker.ql-header .ql-picker-label::before{
+    content:'Normal'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before{
+    content:'Heading 1'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before{
+    content:'Heading 2'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before{
+    content:'Heading 3'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before{
+    content:'Heading 4'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before{
+    content:'Heading 5'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before,.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before{
+    content:'Heading 6'
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before{
+    font-size:2em
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before{
+    font-size:1.5em
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before{
+    font-size:1.17em
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before{
+    font-size:1em
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before{
+    font-size:.83em
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before{
+    font-size:.67em
+}
+.ql-snow .ql-picker.ql-font{
+    width:108px
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item::before,.ql-snow .ql-picker.ql-font .ql-picker-label::before{
+    content:'Sans Serif'
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before,.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before{
+    content:'Serif'
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before,.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before{
+    content:'Monospace'
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before{
+    font-family:Georgia,Times New Roman,serif
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before{
+    font-family:Monaco,Courier New,monospace
+}
+.ql-snow .ql-picker.ql-size{
+    width:98px
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item::before,.ql-snow .ql-picker.ql-size .ql-picker-label::before{
+    content:'Normal'
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before,.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before{
+    content:'Small'
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before,.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before{
+    content:'Large'
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before,.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before{
+    content:'Huge'
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before{
+    font-size:10px
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before{
+    font-size:18px
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before{
+    font-size:32px
+}
+.ql-snow .ql-color-picker.ql-background .ql-picker-item{
+    background-color:#fff
+}
+.ql-snow .ql-color-picker.ql-color .ql-picker-item{
+    background-color:#000
+}
+.ql-toolbar.ql-snow{
+    border:1px solid #ccc;
+    box-sizing:border-box;
+    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding:8px
+}
+.ql-toolbar.ql-snow .ql-formats{
+    margin-right:15px
+}
+.ql-toolbar.ql-snow .ql-picker-label{
+    border:1px solid transparent
+}
+.ql-toolbar.ql-snow .ql-picker-options{
+    border:1px solid transparent;
+    box-shadow:rgba(0,0,0,.2) 0 2px 8px
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label{
+    border-color:#ccc
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options{
+    border-color:#ccc
+}
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item.ql-selected,.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item:hover{
+    border-color:#000
+}
+.ql-toolbar.ql-snow+.ql-container.ql-snow{
+    border-top:0
+}
+.ql-snow .ql-tooltip{
+    background-color:#fff;
+    border:1px solid #ccc;
+    box-shadow:0 0 5px #ddd;
+    color:#444;
+    padding:5px 12px;
+    white-space:nowrap
+}
+.ql-snow .ql-tooltip::before{
+    content:"Visit URL:";
+    line-height:26px;
+    margin-right:8px
+}
+.ql-snow .ql-tooltip input[type=text]{
+    display:none;
+    border:1px solid #ccc;
+    font-size:13px;
+    height:26px;
+    margin:0;
+    padding:3px 5px;
+    width:170px
+}
+.ql-snow .ql-tooltip a.ql-preview{
+    display:inline-block;
+    max-width:200px;
+    overflow-x:hidden;
+    text-overflow:ellipsis;
+    vertical-align:top
+}
+.ql-snow .ql-tooltip a.ql-action::after{
+    border-right:1px solid #ccc;
+    content:'Edit';
+    margin-left:16px;
+    padding-right:8px
+}
+.ql-snow .ql-tooltip a.ql-remove::before{
+    content:'Remove';
+    margin-left:8px
+}
+.ql-snow .ql-tooltip a{
+    line-height:26px
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-preview,.ql-snow .ql-tooltip.ql-editing a.ql-remove{
+    display:none
+}
+.ql-snow .ql-tooltip.ql-editing input[type=text]{
+    display:inline-block
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after{
+    border-right:0;
+    content:'Save';
+    padding-right:0
+}
+.ql-snow .ql-tooltip[data-mode=link]::before{
+    content:"Enter link:"
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before{
+    content:"Enter formula:"
+}
+.ql-snow .ql-tooltip[data-mode=video]::before{
+    content:"Enter video:"
+}
+.ql-snow a{
+    color:#06c
+}
+.ql-container.ql-snow{
+    border:1px solid #ccc
+}
+
+</style>
+
+<style type="text/css">
+.ql-container.ql-snow {
+    border : none !important
+}
+</style>
+
+<script type="text/javascript" src="./View and Edit_files/quill.min.js.download"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.divRTE').each(function () {
+            var spnId = $(this).attr('id');
+            var originalResponse = $(this).html();
+            if (originalResponse != null && typeof originalResponse === "string") {
+                SetQuillComponents(originalResponse, spnId);
+            }
+        });
+    });
+
+    function SetQuillComponents(originalResponse, spnId) {
+        try {
+            var rteOptions = {
+                bounds: this,
+                theme: "snow",
+                modules: { toolbar: false }
+            };
+            var quill = new Quill('#' + spnId, rteOptions);
+            quill.disable();
+            originalResponse = originalResponse.replace(/\\:/g, ':').replace(/\\\\/g, '\\');
+            var delta = quill.clipboard.convert(originalResponse);
+            quill.setContents(delta, "silent");
+
+        } catch (err) {
+            console.log(err);
+            return;
+        }
+    }
+
+</script>
+
+</td>
+				</tr>
+				<tr>
+					<td><span id="lblFooter"></span></td>
+				</tr>
+			</tbody></table>
+			<span id="lblJScript"><script language="javascript">vSendEmailPaneIsVisibleObjID='sendEmailPaneIsVisible';</script></span><input name="sendEmailPaneIsVisible" type="hidden" id="sendEmailPaneIsVisible" value="false">
+			<input name="hdnXDPI" type="hidden" id="hdnXDPI" value="96"> <input name="hdnRepTitle" type="hidden" id="hdnRepTitle">			
+		</form>
+		<script>		
+			var XDPI;
+			if (typeof(screen.deviceYDPI) == "undefined" || screen.deviceXDPI == null || screen.deviceXDPI == "")
+			{
+			    //other than IE
+				XDPI = parseFloat("96");
+			}
+			else
+			{
+				XDPI = parseFloat(screen.deviceXDPI);					
+			}
+			
+			document.getElementById("hdnXDPI").value = XDPI;
+			
+			function InitSendEmailPane()
+			{
+				var oSendEmailIsVisible = document.getElementById(vSendEmailPaneIsVisibleObjID);
+				
+				if (oSendEmailIsVisible.value == "true")
+				{
+					ShowEmailReportPane(false);					
+				}
+				else
+				{
+					CloseEmailReport();
+				}
+			}
+			
+			InitSendEmailPane();
+			ClosePleaseWait();			
+		</script>
+	
+
+</body></html>
